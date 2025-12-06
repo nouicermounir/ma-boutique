@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - TechStyle Shop</title>
+    <link rel="stylesheet" href="logincss.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo">🛒 TechStyle Shop</div>
+            
+            <!-- Formulaire de Connexion -->
+            <div class="form-container" id="loginForm">
+                <h2>Connexion</h2>
+                <form onsubmit="handleLogin(event)">
+                    <div class="input-group">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" required placeholder="votre@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="loginPassword">Mot de passe</label>
+                        <input type="password" id="loginPassword" required placeholder="••••••••">
+                    </div>
+                    <button type="submit" class="btn-primary">Se connecter</button>
+                </form>
+                <p class="switch-form">
+                    Pas encore de compte ? 
+                    <a href="#" onclick="showRegisterForm()">Créer un compte</a>
+                </p>
+            </div>
+
+            <!-- Formulaire d'Inscription -->
+            <div class="form-container hidden" id="registerForm">
+                <h2>Créer un compte</h2>
+                <form onsubmit="handleRegister(event)">
+                    <div class="input-group">
+                        <label for="registerName">Nom complet</label>
+                        <input type="text" id="registerName" required placeholder="Jean Dupont">
+                    </div>
+                    <div class="input-group">
+                        <label for="registerEmail">Email</label>
+                        <input type="email" id="registerEmail" required placeholder="votre@email.com">
+                    </div>
+                    <div class="input-group">
+                        <label for="registerPassword">Mot de passe</label>
+                        <input type="password" id="registerPassword" required placeholder="••••••••" minlength="6">
+                    </div>
+                    <div class="input-group">
+                        <label for="registerConfirmPassword">Confirmer le mot de passe</label>
+                        <input type="password" id="registerConfirmPassword" required placeholder="••••••••" minlength="6">
+                    </div>
+                    <button type="submit" class="btn-primary">Créer mon compte</button>
+                </form>
+                <p class="switch-form">
+                    Déjà un compte ? 
+                    <a href="#" onclick="showLoginForm()">Se connecter</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="loginjs.js"></script>
+</body>
+</html>

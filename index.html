@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStyle Shop - Boutique en ligne</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">🛒 Mounir-Tech Style Shop</div>
+                <ul class="nav-links">
+                    <li><a href="#gaming">Gaming</a></li>
+                    <li><a href="#parfums">Parfums</a></li>
+                    <li><a href="#" id="userLink" onclick="handleUserAction()">👤 Connexion</a></li>
+                    <li>
+                        <button class="cart-btn" onclick="toggleCart()">
+                            🛒 Panier
+                            <span class="cart-count" id="cartCount">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Bienvenue sur Mounir-Tech Shop</h1>
+            <p>Découvrez nos produits gaming et nos parfums de luxe</p>
+        </section>
+
+        <!-- Section Gaming -->
+        <section class="section" id="gaming">
+            <h2 class="section-title">🎮 Produits Gaming</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&h=500&fit=crop" alt="Clavier Gaming" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Clavier Mécanique RGB</h3>
+                        <p class="product-description">Clavier gaming mécanique avec rétroéclairage RGB personnalisable</p>
+                        <p class="product-price">89.99€</p>
+                        <button class="add-to-cart" onclick="addToCart('Clavier Mécanique RGB', 89.99)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop" alt="Souris Gaming" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Souris Gaming Pro</h3>
+                        <p class="product-description">Souris optique haute précision avec 7 boutons programmables</p>
+                        <p class="product-price">59.99€</p>
+                        <button class="add-to-cart" onclick="addToCart('Souris Gaming Pro', 59.99)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1599669454699-248893623440?w=500&h=500&fit=crop" alt="Casque Gaming" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Casque Gaming 7.1</h3>
+                        <p class="product-description">Casque surround 7.1 avec micro antibruit et coussinets confortables</p>
+                        <p class="product-price">79.99€</p>
+                        <button class="add-to-cart" onclick="addToCart('Casque Gaming 7.1', 79.99)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=500&h=500&fit=crop" alt="Tapis de souris" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Tapis de Souris XXL</h3>
+                        <p class="product-description">Grand tapis de souris gaming avec surface antidérapante</p>
+                        <p class="product-price">24.99€</p>
+                        <button class="add-to-cart" onclick="addToCart('Tapis de Souris XXL', 24.99)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Parfums -->
+        <section class="section" id="parfums">
+            <h2 class="section-title">💎 Parfums de Luxe</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&h=500&fit=crop" alt="Parfum Homme" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Élégance Homme</h3>
+                        <p class="product-description">Eau de parfum pour homme aux notes boisées et épicées - 100ml</p>
+                        <p class="product-price">65.00€</p>
+                        <button class="add-to-cart" onclick="addToCart('Élégance Homme', 65.00)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500&h=500&fit=crop" alt="Parfum Femme" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Rose Mystique</h3>
+                        <p class="product-description">Eau de parfum pour femme aux notes florales délicates - 100ml</p>
+                        <p class="product-price">72.00€</p>
+                        <button class="add-to-cart" onclick="addToCart('Rose Mystique', 72.00)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=500&h=500&fit=crop" alt="Parfum Homme Sport" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Sport Intense Homme</h3>
+                        <p class="product-description">Eau de toilette fraîche et dynamique pour homme actif - 100ml</p>
+                        <p class="product-price">58.00€</p>
+                        <button class="add-to-cart" onclick="addToCart('Sport Intense Homme', 58.00)">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59d75?w=500&h=500&fit=crop" alt="Parfum Femme Luxe" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Glamour Nuit</h3>
+                        <p class="product-description">Eau de parfum sophistiquée aux notes orientales - 100ml</p>
+                        <p class="product-price">85.00€</p>
+                        <button class="add-to-cart" onclick="addToCart('Glamour Nuit', 85.00)">Ajouter au panier</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>Mon Panier</h2>
+                <button class="close-cart" onclick="toggleCart()">×</button>
+            </div>
+            <div id="cartItems"></div>
+<div class="cart-total">
+    <h3>Total: <span id="cartTotal">0.00€</span></h3>
+    <button class="paypal-btn" onclick="payWithPayPal()">
+        💳 Payer avec PayPal
+    </button>
+</div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 TechStyle Shop. Tous droits réservés.</p>
+            <p>Projet scolaire - Mini boutique en ligne</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

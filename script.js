@@ -1,20 +1,48 @@
-let cart = [];
+// ----------------------------------------
+// 🛒 FINAL SHOP CART SYSTEM (FIXED + MERGED)
+// ----------------------------------------
 
+// Load cart from localStorage
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+// Save cart to storage
+function saveCart() {
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+// Add product
 function addToCart(name, price) {
     cart.push({ name, price });
+
+    saveCart();
     updateCart();
-    showNotification(`${name} ajouté au panier!`);
+    showNotification(`${name} ajouté au panier !`);
 }
 
+// Remove product
 function removeFromCart(index) {
     cart.splice(index, 1);
+
+    saveCart();
     updateCart();
 }
 
+// Clear all
+function clearCart() {
+    cart = [];
+    saveCart();
+    updateCart();
+}
+
+// -----------------------------
+// 🔄 UPDATE CART VIEW (MODAL)
+// -----------------------------
 function updateCart() {
     const cartCount = document.getElementById('cartCount');
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
+
+    if (!cartCount || !cartItems || !cartTotal) return; // If not on cart page
 
     cartCount.textContent = cart.length;
 
@@ -24,7 +52,7 @@ function updateCart() {
         return;
     }
 
-    let html = '';
+    let html = "";
     let total = 0;
 
     cart.forEach((item, index) => {
@@ -41,16 +69,23 @@ function updateCart() {
     });
 
     cartItems.innerHTML = html;
-    cartTotal.textContent = total.toFixed(2) + '€';
+    cartTotal.textContent = total.toFixed(2) + "€";
 }
 
+// -----------------------------
+// 🛒 CART MODAL SHOW/HIDE
+// -----------------------------
 function toggleCart() {
     const modal = document.getElementById('cartModal');
     modal.classList.toggle('active');
 }
 
+// -----------------------------
+// 🔔 NOTIFICATIONS
+// -----------------------------
 function showNotification(message) {
-    const notification = document.createElement('div');
+    const notification = document.createElement("div");
+
     notification.style.cssText = `
         position: fixed;
         top: 100px;
@@ -63,75 +98,89 @@ function showNotification(message) {
         z-index: 3000;
         animation: slideIn 0.3s ease;
     `;
+
     notification.textContent = message;
     document.body.appendChild(notification);
 
     setTimeout(() => {
-        notification.style.animation = 'slideOut 0.3s ease';
+        notification.style.animation = "slideOut 0.3s ease";
         setTimeout(() => notification.remove(), 300);
     }, 2000);
 }
 
+// -----------------------------
+// 💳 PAYPAL PAYMENT
+// -----------------------------
 function payWithPayPal() {
     if (cart.length === 0) {
-        alert('Votre panier est vide !');
+        alert("Votre panier est vide !");
         return;
     }
 
-    // Calcul du total
-    let total = 0;
-    cart.forEach(item => {
-        total += item.price;
-    });
+    let total = cart.reduce((sum, item) => sum + item.price, 0);
 
-    // Redirection vers PayPal avec les paramètres
-    // IMPORTANT: Remplacez 'VOTRE_EMAIL_PAYPAL' par votre vrai email PayPal
-    const paypalEmail = 'VOTRE_EMAIL_PAYPAL@example.com';
-    const currency = 'EUR';
-    const itemName = `Commande TechStyle Shop (${cart.length} article${cart.length > 1 ? 's' : ''})`;
-    
-    // Construction de l'URL PayPal
-    const paypalUrl = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=${encodeURIComponent(paypalEmail)}&item_name=${encodeURIComponent(itemName)}&amount=${total.toFixed(2)}&currency_code=${currency}&return=https://votresite.com/success&cancel_return=https://votresite.com/cancel`;
-    
-    // Redirection vers PayPal
-    window.open(paypalUrl, '_blank');
+    // Replace with your PayPal email
+    const paypalEmail = "VOTRE_EMAIL_PAYPAL@example.com";
+    const currency = "EUR";
+    const itemName = `Commande TechStyle Shop (${cart.length} articles)`;
+
+    const paypalUrl =
+        `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick` +
+        `&business=${encodeURIComponent(paypalEmail)}` +
+        `&item_name=${encodeURIComponent(itemName)}` +
+        `&amount=${total.toFixed(2)}` +
+        `&currency_code=${currency}` +
+        `&return=https://votresite.com/success` +
+        `&cancel_return=https://votresite.com/cancel`;
+
+    window.open(paypalUrl, "_blank");
 }
 
-// Gestion de l'utilisateur connecté
+// -----------------------------
+// 👤 USER LOGIN SYSTEM
+// -----------------------------
 function checkUserLogin() {
-    const currentUser = localStorage.getItem('currentUser');
-    const userLink = document.getElementById('userLink');
-    
+    const currentUser = localStorage.getItem("currentUser");
+    const userLink = document.getElementById("userLink");
+
+    if (!userLink) return;
+
     if (currentUser) {
         const user = JSON.parse(currentUser);
         userLink.textContent = `👤 ${user.name}`;
     } else {
-        userLink.textContent = '👤 Connexion';
+        userLink.textContent = "👤 Connexion";
     }
 }
 
 function handleUserAction() {
-    const currentUser = localStorage.getItem('currentUser');
-    
+    const currentUser = localStorage.getItem("currentUser");
+
     if (currentUser) {
-        // Si l'utilisateur est connecté, afficher un menu
         const user = JSON.parse(currentUser);
         const logout = confirm(`Bonjour ${user.name} !\n\nVoulez-vous vous déconnecter ?`);
-        
+
         if (logout) {
-            localStorage.removeItem('currentUser');
-            alert('Déconnexion réussie !');
+            localStorage.removeItem("currentUser");
+            alert("Déconnexion réussie !");
             window.location.reload();
         }
     } else {
-        // Si non connecté, rediriger vers la page de connexion
-        window.location.href = 'login.html';
+        window.location.href = "login.html";
     }
 }
 
-// Vérifier la connexion au chargement de la page
-window.addEventListener('DOMContentLoaded', checkUserLogin);
-```
+// -----------------------------
+// 🔗 PRODUCT NAVIGATION
+// -----------------------------
+function goToProduct(productId) {
+    window.location.href = `product.html?id=${productId}`;
+}
 
-## 📁 Structure finale de votre projet :
-```
+// -----------------------------
+// 🚀 INIT
+// -----------------------------
+window.addEventListener("DOMContentLoaded", () => {
+    checkUserLogin();
+    updateCart();
+});

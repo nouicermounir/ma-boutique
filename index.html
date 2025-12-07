@@ -13,6 +13,8 @@
             <nav>
                 <div class="logo">🛒 Mounir-Tech Style Shop</div>
                 <ul class="nav-links">
+                    <li><a href="#phones">Phones</a></li>
+                    <li><a href="#accessories">Accessories</a></li>
                     <li><a href="#gaming">Gaming</a></li>
                     <li><a href="#parfums">Parfums</a></li>
                     <li><a href="#" id="userLink" onclick="handleUserAction()">👤 Connexion</a></li>
@@ -38,43 +40,63 @@
         <section class="section" id="gaming">
             <h2 class="section-title">🎮 Produits Gaming</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" onclick="goToProduct('ps5-controller')">
+                    <img src="https://www.pcline.dz/1127-large_default/manette-playstation-5-dualsense-white-sans-fil-original.jpg" alt="Manette PS5" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Manette PS5 DualSense</h3>
+                        <p class="product-description">Retour haptique + gâchettes adaptatives</p>
+                        <p class="product-price">69.99€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('microphone-pro')">
+                    <img src="https://m.media-amazon.com/images/I/81GYqmukfcL._AC_SY300_SX300_QL70_FMwebp_.jpg" alt="Microphone Pro" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Microphone Streaming Pro</h3>
+                        <p class="product-description">Micro USB parfait pour gaming et streaming</p>
+                        <p class="product-price">49.99€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('keyboard-rgb')">
                     <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?w=500&h=500&fit=crop" alt="Clavier Gaming" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Clavier Mécanique RGB</h3>
                         <p class="product-description">Clavier gaming mécanique avec rétroéclairage RGB personnalisable</p>
                         <p class="product-price">89.99€</p>
-                        <button class="add-to-cart" onclick="addToCart('Clavier Mécanique RGB', 89.99)">Ajouter au panier</button>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" onclick="goToProduct('gaming-mouse')">
                     <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500&h=500&fit=crop" alt="Souris Gaming" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Souris Gaming Pro</h3>
                         <p class="product-description">Souris optique haute précision avec 7 boutons programmables</p>
                         <p class="product-price">59.99€</p>
-                        <button class="add-to-cart" onclick="addToCart('Souris Gaming Pro', 59.99)">Ajouter au panier</button>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" onclick="goToProduct('gaming-headset')">
                     <img src="https://images.unsplash.com/photo-1599669454699-248893623440?w=500&h=500&fit=crop" alt="Casque Gaming" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Casque Gaming 7.1</h3>
                         <p class="product-description">Casque surround 7.1 avec micro antibruit et coussinets confortables</p>
                         <p class="product-price">79.99€</p>
-                        <button class="add-to-cart" onclick="addToCart('Casque Gaming 7.1', 79.99)">Ajouter au panier</button>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" onclick="goToProduct('mouse-pad')">
                     <img src="https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=500&h=500&fit=crop" alt="Tapis de souris" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Tapis de Souris XXL</h3>
                         <p class="product-description">Grand tapis de souris gaming avec surface antidérapante</p>
                         <p class="product-price">24.99€</p>
-                        <button class="add-to-cart" onclick="addToCart('Tapis de Souris XXL', 24.99)">Ajouter au panier</button>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
                     </div>
                 </div>
             </div>
@@ -84,43 +106,165 @@
         <section class="section" id="parfums">
             <h2 class="section-title">💎 Parfums de Luxe</h2>
             <div class="products-grid">
-                <div class="product-card">
+                <div class="product-card" onclick="goToProduct('royal-oud')">
+                    <img src="https://i5.walmartimages.com/seo/Creed-Royal-Oud-Eau-de-Parfum-Unisex-Fragrance-1-7-Oz_6bd34d08-9008-4261-beb7-594b41872078.9950599af84b1421fd40ea4fd6cb97c4.jpeg" alt="Parfum Oud" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Royal Oud</h3>
+                        <p class="product-description">Parfum oriental intense aux notes d'Oud</p>
+                        <p class="product-price">95.00€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('vanille-supreme')">
+                    <img src="https://luxurious-fragrances.com/wp-content/uploads/2025/08/supreme-vanille.jpg" alt="Parfum Vanille" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Vanille Suprême</h3>
+                        <p class="product-description">Senteur douce à la vanille et caramel</p>
+                        <p class="product-price">78.00€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('elegance-homme')">
                     <img src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=500&h=500&fit=crop" alt="Parfum Homme" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Élégance Homme</h3>
                         <p class="product-description">Eau de parfum pour homme aux notes boisées et épicées - 100ml</p>
                         <p class="product-price">65.00€</p>
-                        <button class="add-to-cart" onclick="addToCart('Élégance Homme', 65.00)">Ajouter au panier</button>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" onclick="goToProduct('rose-mystique')">
                     <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=500&h=500&fit=crop" alt="Parfum Femme" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Rose Mystique</h3>
                         <p class="product-description">Eau de parfum pour femme aux notes florales délicates - 100ml</p>
                         <p class="product-price">72.00€</p>
-                        <button class="add-to-cart" onclick="addToCart('Rose Mystique', 72.00)">Ajouter au panier</button>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
                     </div>
                 </div>
 
-                <div class="product-card">
+                <div class="product-card" onclick="goToProduct('sport-intense')">
                     <img src="https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=500&h=500&fit=crop" alt="Parfum Homme Sport" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Sport Intense Homme</h3>
                         <p class="product-description">Eau de toilette fraîche et dynamique pour homme actif - 100ml</p>
                         <p class="product-price">58.00€</p>
-                        <button class="add-to-cart" onclick="addToCart('Sport Intense Homme', 58.00)">Ajouter au panier</button>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
                     </div>
                 </div>
 
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1588405748880-12d1d2a59d75?w=500&h=500&fit=crop" alt="Parfum Femme Luxe" class="product-image">
+                <div class="product-card" onclick="goToProduct('glamour-nuit')">
+                    <img src="https://photos.enjoei.com.br/glamour-nuit-111331833/828xN/czM6Ly9waG90b3MuZW5qb2VpLmNvbS5ici9wcm9kdWN0cy82MzQzMTAwL2RmMjBmMzA1ZTFlODk0NmE5YjRjZWEyZjIwYWM4ZTA4LmpwZw" alt="Parfum Femme Luxe" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Glamour Nuit</h3>
                         <p class="product-description">Eau de parfum sophistiquée aux notes orientales - 100ml</p>
                         <p class="product-price">85.00€</p>
-                        <button class="add-to-cart" onclick="addToCart('Glamour Nuit', 85.00)">Ajouter au panier</button>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Phones -->
+        <section class="section" id="phones">
+            <h2 class="section-title">📱 Téléphones</h2>
+            <div class="products-grid">
+                <div class="product-card" onclick="goToProduct('iphone-14')">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&h=500&fit=crop" alt="iPhone 14" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">iPhone 14</h3>
+                        <p class="product-description">Écran Super Retina XDR • 128 Go</p>
+                        <p class="product-price">899.00€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('samsung-s23')">
+                    <img src="https://iphoneprixalgerie.com/img/product/177/main.jpg" alt="Samsung S23" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Samsung Galaxy S23</h3>
+                        <p class="product-description">Écran 120Hz • 256 Go</p>
+                        <p class="product-price">799.00€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('xiaomi-13-pro')">
+                    <img src="https://lh5.googleusercontent.com/rHFDzn_CaSbggHYnpdCdFxA4YXl4pvOrFJSPHmQeOGYLqUuzZ9u4RfCKtiv4fo0tcXo=w2400" alt="Xiaomi 13 Pro" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Xiaomi 13 Pro</h3>
+                        <p class="product-description">Appareil photo Leica • 256 Go</p>
+                        <p class="product-price">699.00€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('huawei-p50')">
+                    <img src="https://brothers-phone.com/wp-content/uploads/2024/04/Images-site-5.png" alt="Huawei P50" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Huawei P50</h3>
+                        <p class="product-description">Triple caméra • 128 Go</p>
+                        <p class="product-price">549.00€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('infinix-note-30')">
+                    <img src="https://mobijil.com/wp-content/uploads/2025/01/Infinix-Note-30-5G-500x500-1-1024x1024.jpg" alt="Infinix Note 30" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Infinix Note 30</h3>
+                        <p class="product-description">Charge rapide 68W • 128 Go</p>
+                        <p class="product-price">249.00€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('realme-gt')">
+                    <img src="https://static.realme.net/v2/realme-gt-luna-a/images/specs/2-c89f67769e.png" alt="Realme GT" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Realme GT Master</h3>
+                        <p class="product-description">Snapdragon 778G • 128 Go</p>
+                        <p class="product-price">329.00€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Accessories -->
+        <section class="section" id="accessories">
+            <h2 class="section-title">🔌 Accessoires</h2>
+            <div class="products-grid">
+                <div class="product-card" onclick="goToProduct('fast-charger')">
+                    <img src="https://www.hoco-algerie.com/wp-content/uploads/2022/01/hoco-n16-scenery-65w-three-port-wall-charger-eu-set-with-type-c-to-type-c-cable-package.jpg" alt="Chargeur Rapide" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Chargeur Rapide 30W</h3>
+                        <p class="product-description">Compatible Android & iPhone</p>
+                        <p class="product-price">19.99€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('power-bank')">
+                    <img src="https://dz.jumia.is/unsafe/fit-in/680x680/filters:fill(white)/product/90/5145/1.jpg?5631" alt="Power Bank" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Power Bank 20,000mAh</h3>
+                        <p class="product-description">Recharge haute capacité</p>
+                        <p class="product-price">29.99€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
+                    </div>
+                </div>
+
+                <div class="product-card" onclick="goToProduct('bluetooth-earbuds')">
+                    <img src="https://campusinformatique.com/wp-content/uploads/2024/12/ECOUTEUR-BLUETOOTH-HOCO-EQ12.webp" alt="Écouteurs Bluetooth" class="product-image">
+                    <div class="product-info">
+                        <h3 class="product-name">Écouteurs Bluetooth</h3>
+                        <p class="product-description">Autonomie 20h • Boîtier charge</p>
+                        <p class="product-price">34.99€</p>
+                        <button class="add-to-cart" onclick="event.stopPropagation();">Voir Détails</button>
                     </div>
                 </div>
             </div>
@@ -135,12 +279,12 @@
                 <button class="close-cart" onclick="toggleCart()">×</button>
             </div>
             <div id="cartItems"></div>
-<div class="cart-total">
-    <h3>Total: <span id="cartTotal">0.00€</span></h3>
-    <button class="paypal-btn" onclick="payWithPayPal()">
-        💳 Payer avec PayPal
-    </button>
-</div>
+            <div class="cart-total">
+                <h3>Total: <span id="cartTotal">0.00€</span></h3>
+                <button class="paypal-btn" onclick="payWithPayPal()">
+                    💳 Payer avec PayPal
+                </button>
+            </div>
         </div>
     </div>
 
